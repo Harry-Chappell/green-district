@@ -28,11 +28,17 @@
 
 		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
         
+        <!-- Font Awesome -->
+		<script src="https://kit.fontawesome.com/e4c66c7e6d.js" crossorigin="anonymous"></script>
+
 		<?php // wordpress head functions ?>
 		<?php wp_head(); ?>
 		<?php // end of wordpress head ?>
 
 	</head>
+
+	<!-- Set Homepage ID -->
+	<?php $home_id = get_option('page_on_front'); ?>
 
 	<body <?php body_class(); ?> itemscope itemtype="http://schema.org/WebPage">
 
@@ -42,15 +48,46 @@
 
 				<div id="inner-header" class="wrap cf">
 
-					<?php // to use a image just replace the bloginfo('name') with your img src and remove the surrounding <p> ?>
 					<p id="logo" class="h1" itemscope itemtype="http://schema.org/Organization"><a href="<?php echo home_url(); ?>" rel="nofollow"><?php bloginfo('name'); ?></a></p>
 
-					<?php // if you'd like to use the site description you can un-comment it below ?>
-					<?php // bloginfo('description'); ?>
+					<div class="hamburger d-hide t-hide" onlcick="mobile-menu-toggle()">
+						<div></div>
+						<div></div>
+						<div></div>
+					</div>
 
+					<div class="menu-cntr">
 
-					<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<?php wp_nav_menu(array(
+						<div class="social">
+
+							<?php if( get_field('tiktok', $home_id) ): ?>
+								<a href="<?php the_field('tiktok', $home_id); ?>" title="Tiktok"><i class="fa-brands fa-tiktok"></i></a>
+							<?php endif; ?>
+
+							<?php if( get_field('instagram', $home_id) ): ?>
+								<a href="<?php the_field('instagram', $home_id); ?>" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+							<?php endif; ?>
+
+							<?php if( get_field('facebook', $home_id) ): ?>
+								<a href="<?php the_field('facebook', $home_id); ?>" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+							<?php endif; ?>
+
+							<?php if( get_field('twitter', $home_id) ): ?>
+								<a href="<?php the_field('twitter', $home_id); ?>" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
+							<?php endif; ?>
+
+							<?php if( get_field('youtube', $home_id) ): ?>
+								<a href="<?php the_field('youtube', $home_id); ?>" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+							<?php endif; ?>
+
+							<?php if( get_field('linkedin', $home_id) ): ?>
+								<a href="<?php the_field('linkedin', $home_id); ?>" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+							<?php endif; ?>
+
+						</div>
+
+						<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+							<?php wp_nav_menu(array(
     					         'container' => false,                           // remove nav container
     					         'container_class' => 'menu cf',                 // class of container (should you choose to use it)
     					         'menu' => __( 'The Main Menu', 'bonestheme' ),  // nav name
@@ -62,7 +99,9 @@
         			               'link_after' => '',                             // after each link
         			               'depth' => 0,                                   // limit the depth of the nav
     					         'fallback_cb' => ''                             // fallback function (if there is one)
-						)); ?>
+							)); ?>
+							
+						</div>
 
 					</nav>
 
