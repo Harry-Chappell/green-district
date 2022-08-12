@@ -15,87 +15,94 @@
 
 <?php get_header(); ?>
 
-			<div id="content">
+	<div id="content">
 
-				<div id="inner-content" class="wrap cf">
+		<div id="inner-content" class="">
 
-						<main id="main" class="m-all t-2of3 d-5of7 cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
+			<main id="main" class="" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
-							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+				<section class="hero">
+					
+					<?php
+					$loop = new WP_Query(
+						array(
+							'post_type' => 'hero-slides',
+							'order'     => 'ASC'
+						)
+					);
+					while ( $loop->have_posts() ) : $loop->the_post();
+					?>
 
-							<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
-
-								<header class="article-header">
-
-									<h1 class="page-title"><?php the_title(); ?></h1>
-
-									<p class="byline vcard">
-										<?php printf( __( 'Posted <time class="updated" datetime="%1$s" itemprop="datePublished">%2$s</time> by <span class="author">%3$s</span>', 'bonestheme' ), get_the_time('Y-m-j'), get_the_time(get_option('date_format')), get_the_author_link( get_the_author_meta( 'ID' ) )); ?>
-									</p>
-
-
-								</header>
-
-								<section class="entry-content cf" itemprop="articleBody">
-									<?php
-										// the content (pretty self explanatory huh)
-										the_content();
-
-										/*
-										 * Link Pages is used in case you have posts that are set to break into
-										 * multiple pages. You can remove this if you don't plan on doing that.
-										 *
-										 * Also, breaking content up into multiple pages is a horrible experience,
-										 * so don't do it. While there are SOME edge cases where this is useful, it's
-										 * mostly used for people to get more ad views. It's up to you but if you want
-										 * to do it, you're wrong and I hate you. (Ok, I still love you but just not as much)
-										 *
-										 * http://gizmodo.com/5841121/google-wants-to-help-you-avoid-stupid-annoying-multiple-page-articles
-										 *
-										*/
-										wp_link_pages( array(
-											'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'bonestheme' ) . '</span>',
-											'after'       => '</div>',
-											'link_before' => '<span>',
-											'link_after'  => '</span>',
-										) );
-									?>
-								</section>
+					<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); ?>
+					
+					<div class="hero-slide" style="background-image: url('<?php echo $image[0]; ?>')">
+						<?php the_title(); ?>
+					</div>
+					
+					<?php endwhile;
+					wp_reset_postdata();
+					?>
 
 
-								<footer class="article-footer">
+					<!-- Next and previous buttons -->
+					<a class="prev" onclick="plusSlides(-1)">left</a>
+					<a class="next" onclick="plusSlides(1)">right</a>
 
-                  <?php the_tags( '<p class="tags"><span class="tags-title">' . __( 'Tags:', 'bonestheme' ) . '</span> ', ', ', '</p>' ); ?>
+					<!-- The dots/circles -->
+					<?php $slide_count = wp_count_posts( 'hero-slides' )->publish; ?>
 
-								</footer>
+					<?php echo '<div class="dots">';
+					for ($i = 1; $i <= $slide_count; $i++) {
+						echo '<span class="dot" onclick="currentSlide(';
+						echo $i;
+						echo ')"></span>';
+						}
+					echo '</div>';
+					?>
 
-								<?php comments_template(); ?>
+					<script>
+						let slideIndex = 1;
+						showSlides(slideIndex);
 
-							</article>
+						// Next/previous controls
+						function plusSlides(n) {
+						showSlides(slideIndex += n);
+						}
 
-							<?php endwhile; else : ?>
+						// Thumbnail image controls
+						function currentSlide(n) {
+						showSlides(slideIndex = n);
+						}
 
-									<article id="post-not-found" class="hentry cf">
-											<header class="article-header">
-												<h1><?php _e( 'Oops, Post Not Found!', 'bonestheme' ); ?></h1>
-										</header>
-											<section class="entry-content">
-												<p><?php _e( 'Uh Oh. Something is missing. Try double checking things.', 'bonestheme' ); ?></p>
-										</section>
-										<footer class="article-footer">
-												<p><?php _e( 'This is the error message in the page-custom.php template.', 'bonestheme' ); ?></p>
-										</footer>
-									</article>
+						function showSlides(n) {
+						let i;
+						let slides = document.getElementsByClassName("hero-slide");
+						let dots = document.getElementsByClassName("dot");
+						if (n > slides.length) {slideIndex = 1}
+						if (n < 1) {slideIndex = slides.length}
+						for (i = 0; i < slides.length; i++) {
+							slides[i].style.display = "none";
+						}
+						for (i = 0; i < dots.length; i++) {
+							dots[i].className = dots[i].className.replace(" active", "");
+						}
+						slides[slideIndex-1].style.display = "block";
+						dots[slideIndex-1].className += " active";
 
-							<?php endif; ?>
+						}
+					</script>
 
-						</main>
+					
 
-						<?php get_sidebar(); ?>
 
-				</div>
 
-			</div>
+				</section>
+
+			</main>
+
+		</div>
+
+	</div>
 
 
 <?php get_footer(); ?>

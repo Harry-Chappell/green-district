@@ -85,7 +85,7 @@ return $classes;
 
 
 // Custom Post Type  
-function custom_post_type() {
+function cpt_stores() {
   
 	// Set UI labels for Custom Post Type
 		$labels = array(
@@ -142,7 +142,69 @@ function custom_post_type() {
 	* unnecessarily executed. 
 	*/
 	  
-	add_action( 'init', 'custom_post_type', 0 );
+	add_action( 'init', 'cpt_stores', 0 );
+
+
+
+// Custom Post Type  
+function cpt_hero_slides() {
+  
+	// Set UI labels for Custom Post Type
+		$labels = array(
+			'name'                => _x( 'Hero Slides', 'Post Type General Name'),
+			'singular_name'       => _x( 'Hero Slide', 'Post Type Singular Name'),
+			'menu_name'           => __( 'Hero Slides'),
+			'parent_item_colon'   => __( 'Parent Hero Slide'),
+			'all_items'           => __( 'All Hero Slides'),
+			'view_item'           => __( 'View Hero Slide'),
+			'add_new_item'        => __( 'Add New Hero Slide'),
+			'add_new'             => __( 'Add New'),
+			'edit_item'           => __( 'Edit Hero Slide'),
+			'update_item'         => __( 'Update Hero Slide'),
+			'search_items'        => __( 'Search Hero Slide'),
+			'not_found'           => __( 'Not Found'),
+			'not_found_in_trash'  => __( 'Not found in Trash'),
+		);
+		  
+	// Set other options for Custom Post Type
+		  
+		$args = array(
+			'label'               => __( 'hero-slides'),
+			'description'         => __( 'Hero Slides on Homepage'),
+			'labels'              => $labels,
+			// Features this CPT supports in Post Editor
+			'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'custom-fields', ),
+			/* A hierarchical CPT is like Pages and can have
+			* Parent and child items. A non-hierarchical CPT
+			* is like Posts.
+			*/
+			'hierarchical'        => false,
+			'public'              => true,
+			'show_ui'             => true,
+			'show_in_menu'        => true,
+			'show_in_nav_menus'   => true,
+			'show_in_admin_bar'   => true,
+			'menu_position'       => 5,
+			'can_export'          => true,
+			'has_archive'         => true,
+			'exclude_from_search' => false,
+			'publicly_queryable'  => true,
+			'capability_type'     => 'post',
+			'show_in_rest' => true,
+	  
+		);
+		  
+		// Registering your Custom Post Type
+		register_post_type( 'hero-slides', $args );
+	  
+	}
+	  
+	/* Hook into the 'init' action so that the function
+	* Containing our post type registration is not 
+	* unnecessarily executed. 
+	*/
+	  
+	add_action( 'init', 'cpt_hero_slides', 0 );
 
 
 

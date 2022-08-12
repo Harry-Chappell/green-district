@@ -109,6 +109,7 @@ HEADER STYLES
 	background-color: $white;
 	height: 100px;
 	box-shadow: 0 0 25px rgba( 0, 0, 0, 0.25 );
+	position: relative;
 }
 #inner-header {
 	display: flex;
@@ -216,158 +217,155 @@ and more scalable.
 POSTS & CONTENT STYLES
 *********************/
 
-#content {
-	margin-top: 1.5em;
+
+.hentry {
+	background-color: $white;
+	border-radius: 3px;
+	margin-bottom: 1.5em;
+	border: 1px solid $border-color;
+
+	header {
+		border-bottom: 1px solid $light-gray;
+		padding: 1.5em;
+	}
+
+	footer {
+		padding: 1.5em;
+		border-top: 1px solid $light-gray;
+
+		p {
+			margin: 0;
+		}
+	}
+
+} /* end .hentry */
+
+
+/* post meta */
+.byline {
+	color: $meta-gray;
+	font-style: italic;
+	margin: 0;
+
 }
 
-		.hentry {
-			background-color: $white;
-			border-radius: 3px;
-			margin-bottom: 1.5em;
-			border: 1px solid $border-color;
+/* entry content */
+.entry-content {
+	padding: 1.5em 1.5em 0;
 
-			header {
-				border-bottom: 1px solid $light-gray;
-				padding: 1.5em;
-			}
+	p {
+		margin: 0 0 1.5em;
+	}
 
-			footer {
-				padding: 1.5em;
-				border-top: 1px solid $light-gray;
+	table {
+		width: 100%;
+		border: 1px solid $gray;
+		margin-bottom: 1.5em;
 
-				p {
-					margin: 0;
-				}
-			}
-
-		} /* end .hentry */
-
-
-		/* post meta */
-		.byline {
+		caption {
+			margin: 0 0 7px;
+			font-size: 0.75em;
 			color: $meta-gray;
-			font-style: italic;
-			margin: 0;
-
+			text-transform: uppercase;
+			letter-spacing: 1px;
 		}
+	}
 
-		/* entry content */
-		.entry-content {
-			padding: 1.5em 1.5em 0;
+	tr {
+		border-bottom: 1px solid $gray;
 
-			p {
-				margin: 0 0 1.5em;
-			}
+		&:nth-child(even) {
+			background-color: $light-gray;
+		}
+	}
 
-			table {
-				width: 100%;
-				border: 1px solid $gray;
-				margin-bottom: 1.5em;
+	td {
+		padding: 7px;
+		border-right: 1px solid $gray;
 
-				caption {
-					margin: 0 0 7px;
-					font-size: 0.75em;
-					color: $meta-gray;
-					text-transform: uppercase;
-					letter-spacing: 1px;
-				}
-			}
+		&:last-child {
+			border-right: 0;
+		}
+	}
 
-			tr {
-				border-bottom: 1px solid $gray;
+	th {
+		background-color: $light-gray;
+		border-bottom: 1px solid $gray;
+		border-right: 1px solid $gray;
 
-				&:nth-child(even) {
-					background-color: $light-gray;
-				}
-			}
+		&:last-child {
+			border-right: 0;
+		}
+	}
 
-			td {
-				padding: 7px;
-				border-right: 1px solid $gray;
+	blockquote {
+		margin: 0 0 1.5em 0.75em;
+		padding: 0 0 0 0.75em;
+		border-left: 3px solid $blue;
+		font-style: italic;
+		color: $meta-gray;
 
-				&:last-child {
-					border-right: 0;
-				}
-			}
+	}
 
-			th {
-				background-color: $light-gray;
-				border-bottom: 1px solid $gray;
-				border-right: 1px solid $gray;
+	dd {
+		margin-left: 0;
+		font-size: 0.9em;
+		color: #787878;
+		margin-bottom: 1.5em;
+	}
 
-				&:last-child {
-					border-right: 0;
-				}
-			}
+	img {
+		margin: 0 0 1.5em 0;
+		max-width: 100%;
+		height: auto;
+	}
 
-			blockquote {
-				margin: 0 0 1.5em 0.75em;
-				padding: 0 0 0 0.75em;
-				border-left: 3px solid $blue;
-				font-style: italic;
-				color: $meta-gray;
+	/*
+	image alignment on a screen this size may be
+	a bit difficult. It's set to start aligning
+	and floating images at the next breakpoint,
+	but it's up to you. Feel free to change it up.
+	*/
 
-			}
+	.size-auto,
+	.size-full,
+	.size-large,
+	.size-medium,
+	.size-thumbnail {
+		max-width: 100%;
+		height: auto;
+	}
 
-			dd {
-				margin-left: 0;
-				font-size: 0.9em;
-				color: #787878;
-				margin-bottom: 1.5em;
-			}
+	pre {
+		background: $black;
+		color: $light-gray;
+		font-size: 0.9em;
+		padding: 1.5em;
+		margin: 0 0 1.5em;
+		border-radius: 3px;
+	}
 
-			img {
-				margin: 0 0 1.5em 0;
-				max-width: 100%;
-				height: auto;
-			}
+} /* end .entry-content */
 
-			/*
-			image alignment on a screen this size may be
-			a bit difficult. It's set to start aligning
-			and floating images at the next breakpoint,
-			but it's up to you. Feel free to change it up.
-			*/
+.wp-caption {
+	max-width: 100%;
+	background: #eee;
+	padding: 5px;
 
-			.size-auto,
-			.size-full,
-			.size-large,
-			.size-medium,
-			.size-thumbnail {
-				max-width: 100%;
-				height: auto;
-			}
+	/* images inside wp-caption */
+	img {
+		max-width: 100%;
+		margin-bottom: 0;
+		width: 100%;
+	}
 
-			pre {
-				background: $black;
-				color: $light-gray;
-				font-size: 0.9em;
-				padding: 1.5em;
-				margin: 0 0 1.5em;
-				border-radius: 3px;
-			}
+	p.wp-caption-text {
+		font-size: 0.85em;
+		margin: 4px 0 7px;
+		text-align: center;
+	}
 
-		} /* end .entry-content */
-
-		.wp-caption {
-			max-width: 100%;
-			background: #eee;
-			padding: 5px;
-
-			/* images inside wp-caption */
-			img {
-				max-width: 100%;
-				margin-bottom: 0;
-				width: 100%;
-			}
-
-			p.wp-caption-text {
-				font-size: 0.85em;
-				margin: 4px 0 7px;
-				text-align: center;
-			}
-
-		} /* end .wp-caption */
+} /* end .wp-caption */
 
 
 /******************************************************************
