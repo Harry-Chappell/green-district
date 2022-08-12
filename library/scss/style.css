@@ -1381,13 +1381,67 @@ HEADER STYLES
 *********************/
 .header {
   background-color: #fff;
+  height: 100px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+}
+
+#inner-header {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  height: 100%;
+}
+#inner-header a, #inner-header a:visited {
+  color: #215241;
+}
+#inner-header a:hover, #inner-header a:visited:hover {
+  color: #ffe267;
 }
 
 #logo {
-  margin: 0.75em 0;
+  margin: 0;
+  transform: rotate(-13deg);
 }
 #logo a {
-  color: #215241;
+  position: relative;
+}
+#logo a:before, #logo a:after {
+  content: " ";
+  background-image: url(http://localhost:10008/wp-content/uploads/stripe-green-min.png);
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform: rotate(13deg);
+}
+#logo a:before {
+  top: -5px;
+  left: 5px;
+}
+#logo a:after {
+  bottom: 0px;
+  right: 0px;
+  transform: rotate(193deg);
+}
+#logo a:hover:before, #logo a:hover:after {
+  background-image: url(http://localhost:10008/wp-content/uploads/stripe-yellow-min.png);
+}
+
+.menu-cntr {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-end;
+  flex: 1;
+}
+
+.social {
+  margin: 0 5px 2px 0;
+}
+.social a {
+  font-size: 20px;
+  padding: 10px 5px;
 }
 
 /*********************
@@ -1403,13 +1457,17 @@ and more scalable.
 .nav {
   border-bottom: 0;
   margin: 0;
+  display: flex;
+  margin-right: -20px;
   /* end .menu li */
 }
 .nav li a {
   display: block;
   color: #fff;
   text-decoration: none;
-  padding: 0.75em;
+  padding: 10px 20px;
+  font-family: "SignPainter", cursive, "Futura", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 35px;
 }
 
 /* end .nav */
