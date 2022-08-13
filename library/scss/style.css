@@ -873,10 +873,106 @@ them however you see fit.
     width: 8.33%;
   }
 }
+.hero {
+  position: relative;
+}
+
 .hero-slide {
-  height: 500px;
+  height: 700px;
   background-size: cover;
   background-position: center;
+  padding: 50px;
+}
+
+.overlay {
+  background: white;
+  padding: 50px 25px;
+  height: 100%;
+  width: 400px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  justify-content: space-evenly;
+}
+.overlay.left {
+  margin-right: auto;
+}
+.overlay.right {
+  margin-left: auto;
+}
+.overlay h2 {
+  transform: rotate(-13deg);
+}
+.overlay h3 {
+  margin: 0;
+}
+.overlay h2, .overlay .h2, .overlay h3, .overlay .h3, .overlay h4, .overlay .h4, .overlay h5, .overlay .h5, .overlay h6, .overlay .h6 {
+  text-align: center;
+}
+
+.has-stripes, .has-stripes--white, .has-stripes--yellow, .has-stripes--green {
+  position: relative;
+}
+.has-stripes:before, .has-stripes--white:before, .has-stripes--yellow:before, .has-stripes--green:before {
+  top: 15px;
+  left: 20px;
+}
+.has-stripes:after, .has-stripes--white:after, .has-stripes--yellow:after, .has-stripes--green:after {
+  bottom: 10px;
+  right: 20px;
+  transform: rotate(180deg);
+}
+.has-stripes:before, .has-stripes--white:before, .has-stripes--yellow:before, .has-stripes--green:before, .has-stripes:after, .has-stripes--white:after, .has-stripes--yellow:after, .has-stripes--green:after {
+  content: " ";
+  position: absolute;
+  width: 200px;
+  height: 50px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.has-stripes--green:before, .has-stripes--green:after {
+  background-image: url(http://localhost:10008/wp-content/uploads/stripe-green-min.png);
+}
+.has-stripes--yellow:before, .has-stripes--yellow:after {
+  background-image: url(http://localhost:10008/wp-content/uploads/stripe-yellow-min.png);
+}
+.has-stripes--white:before, .has-stripes--white:after {
+  background-image: url(http://localhost:10008/wp-content/uploads/stripe-white-min.png);
+}
+
+.prev, .next {
+  height: 30px;
+  width: 30px;
+  background-color: rgba(33, 82, 65, 0.75);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 10px;
+  cursor: pointer;
+  opacity: 0.5;
+}
+.prev:hover, .next:hover {
+  opacity: 1;
+}
+.prev:before, .next:before {
+  content: " ";
+  height: 30%;
+  width: 30%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-30%, -50%) rotate(135deg);
+  border-color: #ffe267;
+  border-width: 0 3px 3px 0;
+  border-style: solid;
+  position: absolute;
+}
+
+.next {
+  left: unset;
+  right: 10px;
+  transform: translateY(-50%) rotate(180deg);
 }
 
 .dots {
@@ -885,17 +981,48 @@ them however you see fit.
 }
 
 .dot {
-  height: 20px;
+  height: 5px;
   width: 20px;
   background: #215241;
   margin: 5px;
-  opacity: 0.5;
+  opacity: 0.4;
   cursor: pointer;
 }
+.dot:hover {
+  opacity: 0.6;
+}
 .dot.active {
+  opacity: 0.8;
+}
+.dot.active:hover {
   opacity: 1;
 }
 
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+          animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+          animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
 /*********************
 IMPORTING MODULES
 Modules are reusable blocks or elements we use throughout the project.
@@ -963,44 +1090,32 @@ Here's a quick video to show how it works:
 http://www.youtube.com/watch?v=hwdVpKiJzac
 
 *********************/
-.blue-btn {
-  display: inline-block;
+.button {
+  display: flex;
+  height: 100px;
+  width: 100%;
+  max-width: 400px;
+  align-items: center;
+  justify-content: center;
   position: relative;
-  font-family: "Futura", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "SignPainter", cursive, "Futura", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 50px;
   text-decoration: none;
-  color: #fff;
-  font-size: 0.9em;
-  font-size: 34px;
-  line-height: 34px;
-  font-weight: normal;
-  padding: 0 24px;
-  border-radius: 4px;
+  color: #ffe267;
+  background-color: #215241;
   border: 0;
+  padding-top: 7px;
   cursor: pointer;
-  transition: background-color 0.14s ease-in-out;
 }
-.blue-btn:hover, .blue-btn:focus {
-  color: #fff;
+.button:hover, .button:focus {
+  background-color: #1a4033;
+  color: #ffd834;
   text-decoration: none;
   outline: none;
 }
-.blue-btn:active {
-  top: 1px;
-}
-
-/*
-An example button.
-You can use this example if you want. Just replace all the variables
-and it will create a button dependant on those variables.
-*/
-.blue-btn {
-  background-color: #2980b9;
-}
-.blue-btn:hover, .blue-btn:focus {
-  background-color: #2574a8;
-}
-.blue-btn:active {
-  background-color: #2472a4;
+.button:active {
+  background-color: #122e24;
+  color: #ffcf01;
 }
 
 /******************************************************************
@@ -1374,17 +1489,20 @@ h1 a, .h1 a, h2 a, .h2 a, h3 a, .h3 a, h4 a, .h4 a, h5 a, .h5 a {
 
 h1, .h1 {
   font-size: 2.5em;
-  line-height: 1.333em;
+  line-height: 1;
 }
 
 h2, .h2 {
-  font-size: 1.75em;
-  line-height: 1.4em;
+  font-size: 75px;
+  line-height: 1em;
   margin-bottom: 0.375em;
+  margin-top: 0;
 }
 
 h3, .h3 {
-  font-size: 1.125em;
+  font-size: 50px;
+  margin-top: 0;
+  line-height: 1em;
 }
 
 h4, .h4 {
