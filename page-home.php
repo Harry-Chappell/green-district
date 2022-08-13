@@ -146,6 +146,43 @@
 					
 				</section>
 
+				<section class="stores wrap">
+
+					<h2>Our Stores</h2>
+					<h4>Select to find open hours and store details.</h4>
+
+					<div class="stores-cntr">
+
+					<?php
+						$loop = new WP_Query(
+							array(
+								'post_type' => 'stores',
+								'order'     => 'RAND'
+							)
+						);
+						while ( $loop->have_posts() ) : $loop->the_post();
+						?>
+
+						<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); ?>
+						
+						<a href="<?php the_permalink(); ?>" class="store" alt="<?php the_title(); ?>">
+							<div class="logo-cntr">
+								<img class="image" src="<?php echo $image[0]; ?>" alt="<?php the_title(); ?> Thumbnail">
+								<img class="logo" src="<?php the_field('logo'); ?>" alt="<?php the_title(); ?> Logo">
+							</div>
+
+							<h3><?php the_title(); ?></h3>
+						</a>
+						
+						<?php endwhile;
+						wp_reset_postdata();
+					?>
+					</div>
+					
+					<a href="/stores" class="button">View All</a>
+
+				</section>
+
 			</main>
 
 		</div>

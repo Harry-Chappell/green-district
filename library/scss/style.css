@@ -998,31 +998,68 @@ them however you see fit.
   opacity: 1;
 }
 
-/* Fading animation */
-.fade {
-  -webkit-animation-name: fade;
-          animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-          animation-duration: 1.5s;
+.stores {
+  margin-top: 50px;
+  margin-bottom: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-@-webkit-keyframes fade {
-  from {
-    opacity: 0.4;
-  }
-  to {
-    opacity: 1;
-  }
+.stores-cntr {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
 }
 
-@keyframes fade {
-  from {
-    opacity: 0.4;
-  }
-  to {
-    opacity: 1;
-  }
+.store {
+  background: #215241;
+  margin-bottom: 50px;
+  padding-top: 10px;
+  width: calc((100% - 100px) / 5);
+  text-decoration: none;
 }
+.store:hover .logo-cntr .image {
+  filter: none;
+}
+.store h3 {
+  margin: 0;
+  font-size: 25px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.logo-cntr {
+  position: relative;
+  width: 100%;
+  height: 215px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo-cntr .image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  filter: saturate(0.5) brightness(1.2) contrast(0.7) opacity(0.9);
+  transition: 0.1s;
+}
+.logo-cntr .logo {
+  position: absolute;
+  width: 80%;
+  height: 50px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
 /*********************
 IMPORTING MODULES
 Modules are reusable blocks or elements we use throughout the project.
@@ -1451,7 +1488,8 @@ LAYOUT & GRID STYLES
 .wrap {
   width: calc(100% - 100px);
   max-width: 1180px;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /*********************
@@ -1480,7 +1518,6 @@ H1, H2, H3, H4, H5 STYLES
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
   text-rendering: optimizelegibility;
   font-weight: 500;
-  font-family: "SignPainter", cursive, "Futura", "Helvetica Neue", Helvetica, Arial, sans-serif;
   /* removing text decoration from all headline links */
 }
 h1 a, .h1 a, h2 a, .h2 a, h3 a, .h3 a, h4 a, .h4 a, h5 a, .h5 a {
@@ -1490,6 +1527,7 @@ h1 a, .h1 a, h2 a, .h2 a, h3 a, .h3 a, h4 a, .h4 a, h5 a, .h5 a {
 h1, .h1 {
   font-size: 2.5em;
   line-height: 1;
+  font-family: "SignPainter", cursive, "Futura", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 h2, .h2 {
@@ -1497,17 +1535,24 @@ h2, .h2 {
   line-height: 1em;
   margin-bottom: 0.375em;
   margin-top: 0;
+  font-family: "SignPainter", cursive, "Futura", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+section > h2:first-child {
+  margin-bottom: 0;
 }
 
 h3, .h3 {
   font-size: 50px;
   margin-top: 0;
   line-height: 1em;
+  font-family: "SignPainter", cursive, "Futura", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 h4, .h4 {
-  font-size: 1.1em;
-  font-weight: 700;
+  font-size: 24px;
+  font-weight: normal;
+  margin-top: 0;
 }
 
 h5, .h5 {
