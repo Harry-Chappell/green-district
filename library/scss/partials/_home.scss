@@ -245,61 +245,81 @@ section.hero {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+
+    .prev {
+        left: -40px;
+    }
+    .next {
+        right: -40px;
+    }
 }
 
-.posts-cntr {
+#posts-cntr {
     display: flex;
     flex-flow: row;
     margin-bottom: 50px;
     width: 100%;
+    overflow: scroll;
+    scroll-behavior: smooth;
 
-    &> .post {
-        min-width: calc((100% - (25px * 2)) / 3);
+    &> .post-cntr {
         width: 100%;
-        padding-top: 10px;
-        background-color: $primary;
-        display: flex;
-        flex-direction: column;
-        color: $white;
-        padding-bottom: 25px;
-        opacity: 0.5;
+        height: 100%;
+        min-width: calc((100% - (25px * 2)) / 3);
         
         &:not(:last-of-type) {
-            margin-right: 25px;
+            padding-right: 25px;
+            min-width: calc((100% + 25px) / 3);
         }
-
-        &.active + .post,
-        &.active + .post + .post {
-            opacity: 1;
-        }
-
-        a.image-cntr {
-            height: 200px;
+        &> .post {
             width: 100%;
+            padding-top: 10px;
+            background-color: $primary;
+            display: flex;
+            flex-direction: column;
+            color: $white;
+            padding-bottom: 25px;
+            // opacity: 0.5;
+            
+            &:not(:last-of-type) {
+                margin-right: 25px;
+            }
 
-            .image {
+            // &.active,
+            // &.active + .post,
+            // &.active + .post + .post {
+            //     opacity: 1;
+            // }
+
+            a.image-cntr {
+                height: 200px;
                 width: 100%;
-                height: 100%;
-                object-fit: cover;
+
+                .image {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+
+                &:hover .image {
+                    opacity: 0.75;
+                }
             }
 
-            &:hover .image {
-                opacity: 0.75;
+            h3 {
+                margin: 25px 50px;
             }
-        }
 
-        h3 {
-            margin: 25px 50px;
-        }
+            p {
+                flex: 1;
+            }
 
-        p {
-            flex: 1;
-        }
-
-        a.button,
-        p {
-            margin-left: 50px;
-            margin-right: 50px;
+            a.button,
+            p {
+                margin-left: 50px;
+                margin-right: 50px;
+            }
         }
     }
 }

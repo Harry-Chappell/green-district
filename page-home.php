@@ -202,7 +202,7 @@
 					<h2>What's Coming Up</h2>
 					<h4>Lorem ipsum dolar sit amet.</h4>
 
-					<div class="posts-cntr">
+					<div id="posts-cntr">
 
 					<?php
 						$loop = new WP_Query(
@@ -216,24 +216,44 @@
 
 						<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); ?>
 						
-						<div class="post">
-							<a href="<?php the_permalink(); ?>" class="image-cntr" alt="<?php the_title(); ?>">
-								<img class="image" src="<?php echo $image[0]; ?>" alt="<?php the_title(); ?> Thumbnail">
-							</a>
-							<h3><?php the_title(); ?></h3>
-							<?php the_excerpt(); ?>
-							<a class="button inverted small" href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>">Read More</a>
+						<div class="post-cntr">
+							<div class="post">
+								<a href="<?php the_permalink(); ?>" class="image-cntr" alt="<?php the_title(); ?>">
+									<img class="image" src="<?php echo $image[0]; ?>" alt="<?php the_title(); ?> Thumbnail">
+								</a>
+								<h3><?php the_title(); ?></h3>
+								<?php the_excerpt(); ?>
+								<a class="button inverted small" href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>">Read More</a>
+							</div>
 						</div>
 						
 						<?php endwhile;
 						wp_reset_postdata();
-					?>
+						?>
 					</div>
-					
+
+					<a id="btn-prev" class="prev"></a>
+					<a id="btn-next" class="next"></a>
+
 					<a href="/whats-on" class="button">View All</a>
 
+					
+
 					<script>
+						const slidesContainer = document.getElementById("posts-cntr");
+						const slide = document.querySelector(".post-cntr");
+						const prevButton = document.getElementById("btn-prev");
+						const nextButton = document.getElementById("btn-next");
 						
+						nextButton.addEventListener("click", () => {
+						const slideWidth = slide.clientWidth;
+						slidesContainer.scrollLeft += slideWidth;
+						});
+						
+						prevButton.addEventListener("click", () => {
+						const slideWidth = slide.clientWidth;
+						slidesContainer.scrollLeft -= slideWidth;
+						});
 					</script>
 
 				</section>
