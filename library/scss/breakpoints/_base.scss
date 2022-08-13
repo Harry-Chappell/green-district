@@ -442,7 +442,72 @@ FOOTER STYLES
 *********************/
 
 .footer {
-	clear: both;
-	background-color: $primary;
 	color: $white;
+	position: relative;
+	overflow: hidden;
+	
+	&:after {
+		content: " ";
+		position: absolute;
+		top: 0;
+		left: -50px;
+		right: -50px;
+		bottom: -50px;
+		background: $primary;
+		z-index: -1;
+		box-shadow: inset 0 0 25px black;
+	}
+	
+	#logo {
+		margin: 15px 0 25px;
+
+			a {
+			color: $accent;
+
+			&:before, &:after {
+				background-image: url(http://localhost:10008/wp-content/uploads/stripe-yellow-min.png);
+			}
+		}
+	}
+}
+.inner-footer {
+	display: flex;
+    justify-content: space-between;
+	padding-top: 25px;
+	padding-bottom: 25px;
+}
+.footer-contact {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+
+	p {
+		margin: 0;
+	}
+	a {
+		text-decoration: none;
+	}
+	.footer-contact--address {
+		margin-top: 15px;
+	}
+}
+.sub-footer {
+    display: flex;
+    border-top: 1px solid rgb(255 255 255 / 10%);
+	justify-content: flex-end;
+	align-items: center;
+
+	.nav {
+		margin: 0;
+	}
+	.nav li a, p {
+		margin: 0;
+		font-size: 10px;
+		font-family: $sans-serif;
+		opacity: 0.5;
+		padding: 10px;
+	}
+	.nav li a:hover {
+		opacity: 1;
+	}
 }
