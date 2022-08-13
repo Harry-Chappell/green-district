@@ -21,7 +21,7 @@
 
 			<main id="main" class="" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
-				<section class="hero" id="hero">
+				<section class="hero">
 					
 					<?php
 					$loop = new WP_Query(
@@ -181,6 +181,20 @@
 					
 					<a href="/stores" class="button">View All</a>
 
+				</section>
+
+				<section class="find-us wrap">
+					<div class="green-background"></div>
+					<img src="http://localhost:10008/wp-content/uploads/pexels-andrea-piacquadio-3775592-min-scaled.jpg" alt="people-looking-at-map">
+
+					<div class="cntr">
+						<h2>Find Us...</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+						<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+						<a href="/find-us" class="button inverted medium">Find Us</a>
+					</div>
 				</section>
 
 			</main>

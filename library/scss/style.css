@@ -541,12 +541,13 @@ p {
   -ms-word-wrap: break-word;
   word-break: break-word;
   word-wrap: break-word;
-  -webkit-hyphens: auto;
-  -ms-hyphens: auto;
-      hyphens: auto;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+      hyphens: none;
   -ms-font-feature-settings: "liga", "dlig";
   -o-font-feature-settings: "liga", "dlig";
   font-feature-settings: "liga", "dlig";
+  margin: 0 0 30px;
 }
 
 /******************************************************************
@@ -1060,6 +1061,28 @@ them however you see fit.
      object-fit: contain;
 }
 
+.find-us {
+  position: relative;
+  display: flex;
+  flex-flow: row;
+  color: #fff;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  justify-content: space-between;
+}
+.find-us > * {
+  width: calc((100% - 50px) / 2);
+}
+.find-us .green-background {
+  position: absolute;
+  height: calc(100% + 100px);
+  width: 80%;
+  top: -50px;
+  right: -50px;
+  background-color: #215241;
+  z-index: -1;
+}
+
 /*********************
 IMPORTING MODULES
 Modules are reusable blocks or elements we use throughout the project.
@@ -1153,6 +1176,30 @@ http://www.youtube.com/watch?v=hwdVpKiJzac
 .button:active {
   background-color: #122e24;
   color: #ffcf01;
+}
+.button.inverted {
+  background-color: #ffe267;
+  color: #215241;
+}
+.button.inverted:hover, .button.inverted:focus {
+  background-color: #ffdd4e;
+  color: #122e24;
+  text-decoration: none;
+  outline: none;
+}
+.button.inverted:active {
+  background-color: #ffd834;
+  color: #040907;
+}
+.button.medium {
+  height: 65px;
+  font-size: 40px;
+  max-width: 300px;
+}
+.button.small {
+  height: 50px;
+  font-size: 25px;
+  max-width: 200px;
 }
 
 /******************************************************************
@@ -1533,7 +1580,7 @@ h1, .h1 {
 h2, .h2 {
   font-size: 75px;
   line-height: 1em;
-  margin-bottom: 0.375em;
+  margin-bottom: 20px;
   margin-top: 0;
   font-family: "SignPainter", cursive, "Futura", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }

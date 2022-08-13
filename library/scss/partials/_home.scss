@@ -203,3 +203,30 @@
         object-fit: contain;
     }
 }
+
+
+// Find Us
+
+.find-us {
+    position: relative;
+    display: flex;
+    flex-flow: row;
+    color: $white;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    justify-content: space-between;
+
+    > * {
+        width: calc((100% - 50px) / 2);
+    }
+
+    .green-background {
+        position: absolute;
+        height: calc(100% + 100px);
+        width: 80%;
+        top: -50px;
+        right: -50px;
+        background-color: $green;
+        z-index: -1;
+    }
+}

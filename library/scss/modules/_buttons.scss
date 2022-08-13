@@ -41,19 +41,45 @@ http://www.youtube.com/watch?v=hwdVpKiJzac
   padding-top: 7px;
   cursor: pointer;
   
-  // hovering on the button
   &:hover, &:focus {
     background-color: darken($primary, 5%);
     color: darken($accent, 10%);
     text-decoration: none;
     outline: none;
-  } // end hover
-  
-  // clicking on the button
+  }
+
   &:active {
     background-color: darken($primary, 10%);
     color: darken($accent, 20%);
-  } // end active
+  }
+
+  &.inverted {
+    background-color: $accent;
+    color: $primary;
+
+    &:hover, &:focus {
+      background-color: darken($accent, 5%);
+      color: darken($primary, 10%);
+      text-decoration: none;
+      outline: none;
+    }
+    
+    &:active {
+      background-color: darken($accent, 10%);
+      color: darken($primary, 20%);
+    } 
+  }
+
+  &.medium {
+    height: 65px;
+    font-size: 40px;
+    max-width: 300px;
+  }
+  &.small {
+    height: 50px;
+    font-size: 25px;
+    max-width: 200px;
+  }
 
 } // end .button
 
