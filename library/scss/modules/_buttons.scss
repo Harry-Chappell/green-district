@@ -58,8 +58,8 @@ http://www.youtube.com/watch?v=hwdVpKiJzac
     color: $primary;
 
     &:hover, &:focus {
-      background-color: darken($accent, 5%);
-      color: darken($primary, 10%);
+      background-color: darken($accent, 10%);
+      color: $black;
       text-decoration: none;
       outline: none;
     }
