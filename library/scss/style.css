@@ -1155,6 +1155,24 @@ section.hero {
   margin-right: 50px;
 }
 
+section.signup {
+  margin: 50px auto;
+  max-width: 800px;
+  display: flex;
+  justify-content: space-between;
+}
+section.signup > div {
+  width: calc((100% - 50px) / 2);
+}
+section.signup > div label {
+  display: none;
+}
+section.signup > img {
+  width: calc((100% - 50px) / 2);
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 /*********************
 IMPORTING MODULES
 Modules are reusable blocks or elements we use throughout the project.
@@ -1312,21 +1330,45 @@ select,
 textarea,
 .field {
   display: block;
-  height: 40px;
+  height: 50px;
   line-height: 1em;
-  padding: 0 12px;
-  margin-bottom: 14px;
-  font-size: 1em;
+  padding: 0 10px;
+  margin-bottom: 25px;
+  font-size: 21px;
   color: #215241;
-  border-radius: 3px;
+  border-radius: 0;
   vertical-align: middle;
   box-shadow: none;
   border: 0;
+  border-bottom: 3px dashed #215241;
   width: 100%;
-  max-width: 400px;
   font-family: "Futura", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: #a9a9a9;
-  transition: background-color 0.24s ease-in-out;
+  background-color: #fff;
+}
+input[type=text]::-moz-placeholder, input[type=password]::-moz-placeholder, input[type=datetime]::-moz-placeholder, input[type=datetime-local]::-moz-placeholder, input[type=date]::-moz-placeholder, input[type=month]::-moz-placeholder, input[type=time]::-moz-placeholder, input[type=week]::-moz-placeholder, input[type=number]::-moz-placeholder, input[type=email]::-moz-placeholder, input[type=url]::-moz-placeholder, input[type=search]::-moz-placeholder, input[type=tel]::-moz-placeholder, input[type=color]::-moz-placeholder, select::-moz-placeholder, textarea::-moz-placeholder, .field::-moz-placeholder {
+  color: #a9a9a9;
+}
+input[type=text]:-ms-input-placeholder, input[type=password]:-ms-input-placeholder, input[type=datetime]:-ms-input-placeholder, input[type=datetime-local]:-ms-input-placeholder, input[type=date]:-ms-input-placeholder, input[type=month]:-ms-input-placeholder, input[type=time]:-ms-input-placeholder, input[type=week]:-ms-input-placeholder, input[type=number]:-ms-input-placeholder, input[type=email]:-ms-input-placeholder, input[type=url]:-ms-input-placeholder, input[type=search]:-ms-input-placeholder, input[type=tel]:-ms-input-placeholder, input[type=color]:-ms-input-placeholder, select:-ms-input-placeholder, textarea:-ms-input-placeholder, .field:-ms-input-placeholder {
+  color: #a9a9a9;
+}
+input[type=text]::placeholder,
+input[type=password]::placeholder,
+input[type=datetime]::placeholder,
+input[type=datetime-local]::placeholder,
+input[type=date]::placeholder,
+input[type=month]::placeholder,
+input[type=time]::placeholder,
+input[type=week]::placeholder,
+input[type=number]::placeholder,
+input[type=email]::placeholder,
+input[type=url]::placeholder,
+input[type=search]::placeholder,
+input[type=tel]::placeholder,
+input[type=color]::placeholder,
+select::placeholder,
+textarea::placeholder,
+.field::placeholder {
+  color: #a9a9a9;
 }
 input[type=text]:focus, input[type=text]:active,
 input[type=password]:focus,
@@ -1361,7 +1403,6 @@ textarea:focus,
 textarea:active,
 .field:focus,
 .field:active {
-  background-color: #b3b3b3;
   outline: none;
 }
 input[type=text].error, input[type=text].is-invalid,

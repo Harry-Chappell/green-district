@@ -323,3 +323,25 @@ section.hero {
         }
     }
 }
+
+
+// Signup
+
+section.signup {
+    margin: 50px auto;
+    max-width: 800px;
+    display: flex;
+    justify-content: space-between;
+    
+    &> div {
+        width: calc((100% - 50px) / 2);
+
+        label {
+            display: none;
+        }
+    }
+    &> img {
+        width: calc((100% - 50px) / 2);
+        object-fit: cover;
+    }
+}
