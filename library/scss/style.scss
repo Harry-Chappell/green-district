@@ -72,8 +72,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
 @import "breakpoints/base";
 
 
-@media only screen and (max-width: 1217px) {
-	@import "breakpoints/1217down";
+@media only screen and (max-width: 1279px) {
+	@import "breakpoints/1279down";
 } 
 
 @media only screen and (max-width: 1023px) {

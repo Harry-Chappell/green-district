@@ -14,7 +14,7 @@ section.hero {
     height: 700px;
     background-size: cover;
     background-position: center;
-    padding: 50px;
+    padding: 50px calc((100vw - (1180px)) / 2);
 }
 .overlay {
     background: white;
@@ -224,6 +224,7 @@ section.hero {
 
     > * {
         width: calc((100% - 50px) / 2);
+        object-fit: cover;
     }
 
     .green-background {

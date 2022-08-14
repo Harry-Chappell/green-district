@@ -48,7 +48,8 @@
 
 				<div id="inner-header" class="wrap cf">
 
-					<p id="logo" class="h1" itemscope itemtype="http://schema.org/Organization"><a href="<?php echo home_url(); ?>" rel="nofollow"><?php bloginfo('name'); ?></a></p>
+					<p id="logo" class="h1 m-hide" itemscope itemtype="http://schema.org/Organization"><a href="<?php echo home_url(); ?>" rel="nofollow"><?php bloginfo('name'); ?></a></p>
+					<a href="<?php echo home_url(); ?>" rel="nofollow" class="mobile-logo d-hide t-hide"><img src="/wp-content/uploads/logo-small-min.png" alt="mobile-logo"></a>
 
 					<div class="hamburger d-hide t-hide" onlcick="mobile-menu-toggle()">
 						<div></div>

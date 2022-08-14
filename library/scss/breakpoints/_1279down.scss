@@ -1,0 +1,22 @@
+.wrap {
+    width: calc(100vw - 100px);
+}
+.hero-slide {
+    padding: 50px;
+}
+
+.store {
+    margin-bottom: 25px;
+}
+.logo-cntr {
+    height: 175px;
+
+    .logo {
+        padding: 65px 10%;
+    }
+}
+
+
+section.signup {
+    max-width: calc(100% - 100px);
+}
