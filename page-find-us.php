@@ -78,7 +78,7 @@
 								
 							<div class="advanced-video-embed">
 								<h4>Advanced Video Embed</h4>
-									<p>autoplays, muted, with limited controls.</p>
+									<p>Autoplays, muted, with limited controls.</p>
 
 												<div id="muteYouTubeVideoPlayer"></div>
 

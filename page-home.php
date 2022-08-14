@@ -111,7 +111,7 @@
 
 				<section class="find-us wrap">
 					<div class="green-background"></div>
-					<img src="http://localhost:10008/wp-content/uploads/pexels-andrea-piacquadio-3775592-min-scaled.jpg" alt="people-looking-at-map">
+					<img src="/wp-content/uploads/pexels-andrea-piacquadio-3775592-min.jpg" alt="people-looking-at-map">
 
 					<div class="cntr">
 						<h2>Find Us...</h2>
@@ -211,7 +211,7 @@
 
 					</div>
 
-					<img src="/wp-content/uploads/pexels-hong-son-5071056-min-scaled.jpg" alt="">
+					<img src="/wp-content/uploads/pexels-hong-son-5071056-min.jpg" alt="">
 				</section>
 
 			</main>
