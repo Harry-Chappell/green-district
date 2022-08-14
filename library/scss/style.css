@@ -1786,6 +1786,57 @@ HEADER STYLES
   background-image: url(http://localhost:10008/wp-content/uploads/stripe-yellow-min.png);
 }
 
+.hamburger {
+  width: 60px;
+  height: 50px;
+  position: relative;
+  cursor: pointer;
+  display: none;
+  position: absolute;
+  z-index: 6;
+  right: 25px;
+}
+.hamburger div {
+  position: absolute;
+  transform: translateY(-50%);
+  height: 2px;
+  background-color: #215241;
+  left: 10px;
+  transition: 0.5s;
+}
+.hamburger div:nth-of-type(1) {
+  width: calc((100% - 20px) * 0.75);
+  top: 30%;
+}
+.hamburger div:nth-of-type(2) {
+  width: calc((100% - 20px) * 1);
+  top: 50%;
+}
+.hamburger div:nth-of-type(3) {
+  width: calc((100% - 20px) * 0.5);
+  top: 70%;
+}
+.hamburger.expanded {
+  position: fixed;
+}
+.hamburger.expanded div {
+  background-color: #ffe267;
+}
+.hamburger.expanded div:nth-of-type(1) {
+  width: calc(100% - 20px);
+  top: 50%;
+  transform: translate(0, -50%) rotate(45deg);
+}
+.hamburger.expanded div:nth-of-type(2) {
+  width: 0;
+  left: 50%;
+}
+.hamburger.expanded div:nth-of-type(3) {
+  width: calc(100% - 20px);
+  top: 50%;
+  transform: translate(0, -50%) rotate(-45deg);
+}
+
 .menu-cntr {
   display: flex;
   align-items: center;
@@ -2192,6 +2243,43 @@ FOOTER STYLES
   }
   section.signup {
     max-width: calc(100% - 50px);
+  }
+}
+@media only screen and (max-width: 767px) {
+  .hamburger {
+    display: flex;
+  }
+  #inner-header .menu-cntr {
+    position: fixed;
+    background: #215241;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+    flex-direction: column-reverse;
+    justify-content: center;
+    transition: 0.5s;
+    transform: translateX(100%);
+  }
+  #inner-header .menu-cntr.expanded {
+    transform: translateX(0);
+  }
+  #inner-header .menu-cntr a, #inner-header .menu-cntr a:visited {
+    color: #ffe267;
+  }
+  #inner-header .menu-cntr a:hover, #inner-header .menu-cntr a:visited:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  #inner-header .menu-cntr .nav {
+    flex-direction: column;
+    margin: 0 0 20px;
+  }
+  #inner-header .menu-cntr .nav li a {
+    width: 100%;
+    text-align: center;
+    font-size: 50px;
+    padding: 10px 50px;
   }
 }
 @media only screen and (max-width: 479px) {

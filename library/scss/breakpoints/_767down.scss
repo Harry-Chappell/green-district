@@ -1,0 +1,41 @@
+.hamburger {
+    display: flex;
+}
+
+#inner-header .menu-cntr {
+    position: fixed;
+    background: $green;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+    flex-direction: column-reverse;
+    justify-content: center;
+    transition: 0.5s;
+    transform: translateX(100%);
+
+    &.expanded {
+        transform: translateX(0);
+    }
+
+    a, a:visited {
+        color: $accent;
+
+        &:hover {
+            background-color: rgba($white, 0.1);
+        }
+    }
+
+    .nav {
+        flex-direction: column;
+        margin: 0 0 20px;
+
+        li a {
+            width: 100%;
+            text-align: center;
+            font-size: 50px;
+            padding: 10px 50px;
+        }
+    }
+}
