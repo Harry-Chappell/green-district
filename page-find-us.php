@@ -11,7 +11,9 @@
  *
  * For more info: http://codex.wordpress.org/Page_Templates
 */
-?>
+?>	
+<!-- Set Homepage ID -->
+<?php $home_id = get_option('page_on_front'); ?>
 
 <?php get_header(); ?>
 
@@ -19,79 +21,57 @@
 
 				<div id="inner-content" class="wrap cf">
 
-						<main id="main" class="m-all t-2of3 d-5of7 cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
+						<main id="main" class="" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
-							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+							<h1 class="page-title"><?php the_title(); ?></h1>
 
-							<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
+							<div class="contact">
+								<div class="contact-details">
+									<?php if( get_field('phone_number', $home_id) ): ?>
+										<a class="footer-contact--phone" href="tel:<?php echo str_replace(' ', '', get_field('phone_number', $home_id)); ?>"><?php echo str_replace(' ', '&nbsp;', get_field('phone_number', $home_id)); ?></a>
+									<?php endif; ?>
+									<?php if( get_field('email_address', $home_id) ): ?>
+										<a class="footer-contact--email" href="mailto:<?php the_field('email_address', $home_id); ?>" title="Email Address"><?php the_field('email_address', $home_id); ?></a>
+									<?php endif; ?>
+									<?php if( get_field('address', $home_id) ): ?>
+										<p class="footer-contact--address"><?php the_field('address', $home_id); ?></p>
+									<?php endif; ?>
+								</div>
 
-								<header class="article-header">
+								<div class="social">
 
-									<h1 class="page-title"><?php the_title(); ?></h1>
+									<?php if( get_field('tiktok', $home_id) ): ?>
+										<a href="<?php the_field('tiktok', $home_id); ?>" title="Tiktok"><i class="fa-brands fa-tiktok"></i></a>
+									<?php endif; ?>
 
-									<p class="byline vcard">
-										<?php printf( __( 'Posted <time class="updated" datetime="%1$s" itemprop="datePublished">%2$s</time> by <span class="author">%3$s</span>', 'bonestheme' ), get_the_time('Y-m-j'), get_the_time(get_option('date_format')), get_the_author_link( get_the_author_meta( 'ID' ) )); ?>
-									</p>
+									<?php if( get_field('instagram', $home_id) ): ?>
+										<a href="<?php the_field('instagram', $home_id); ?>" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+									<?php endif; ?>
 
+									<?php if( get_field('facebook', $home_id) ): ?>
+										<a href="<?php the_field('facebook', $home_id); ?>" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+									<?php endif; ?>
 
-								</header>
+									<?php if( get_field('twitter', $home_id) ): ?>
+										<a href="<?php the_field('twitter', $home_id); ?>" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
+									<?php endif; ?>
 
-								<section class="entry-content cf" itemprop="articleBody">
-									<?php
-										// the content (pretty self explanatory huh)
-										the_content();
+									<?php if( get_field('youtube', $home_id) ): ?>
+										<a href="<?php the_field('youtube', $home_id); ?>" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+									<?php endif; ?>
 
-										/*
-										 * Link Pages is used in case you have posts that are set to break into
-										 * multiple pages. You can remove this if you don't plan on doing that.
-										 *
-										 * Also, breaking content up into multiple pages is a horrible experience,
-										 * so don't do it. While there are SOME edge cases where this is useful, it's
-										 * mostly used for people to get more ad views. It's up to you but if you want
-										 * to do it, you're wrong and I hate you. (Ok, I still love you but just not as much)
-										 *
-										 * http://gizmodo.com/5841121/google-wants-to-help-you-avoid-stupid-annoying-multiple-page-articles
-										 *
-										*/
-										wp_link_pages( array(
-											'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'bonestheme' ) . '</span>',
-											'after'       => '</div>',
-											'link_before' => '<span>',
-											'link_after'  => '</span>',
-										) );
-									?>
-								</section>
+									<?php if( get_field('linkedin', $home_id) ): ?>
+										<a href="<?php the_field('linkedin', $home_id); ?>" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+									<?php endif; ?>
 
+								</div>
+							</div>
 
-								<footer class="article-footer">
-
-                  <?php the_tags( '<p class="tags"><span class="tags-title">' . __( 'Tags:', 'bonestheme' ) . '</span> ', ', ', '</p>' ); ?>
-
-								</footer>
-
-								<?php comments_template(); ?>
-
-							</article>
-
-							<?php endwhile; else : ?>
-
-									<article id="post-not-found" class="hentry cf">
-											<header class="article-header">
-												<h1><?php _e( 'Oops, Post Not Found!', 'bonestheme' ); ?></h1>
-										</header>
-											<section class="entry-content">
-												<p><?php _e( 'Uh Oh. Something is missing. Try double checking things.', 'bonestheme' ); ?></p>
-										</section>
-										<footer class="article-footer">
-												<p><?php _e( 'This is the error message in the page-custom.php template.', 'bonestheme' ); ?></p>
-										</footer>
-									</article>
-
-							<?php endif; ?>
+							<div class="map">
+								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48663.14141814384!2d-1.6028025158489236!3d53.804824873375075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48795eb565578bb1%3A0xc1c9ebda90c9d719!2s44%20Park%20View%20Ave%2C%20Burley%2C%20Leeds%20LS4%202LH!5e0!3m2!1sen!2suk!4v1660512258484!5m2!1sen!2suk" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+							</div>
 
 						</main>
-
-						<?php get_sidebar(); ?>
 
 				</div>
 

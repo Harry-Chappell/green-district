@@ -1,0 +1,41 @@
+.page-template-page-find-us main {
+    .contact {
+        text-align: center;
+    }
+    .contact-details {
+        font-size: 25px;
+        display: flex;
+        flex-flow: column;
+        margin-bottom: 0;
+
+        a, a:visited {
+            text-decoration: none;
+            color: $primary;
+            
+            &:hover {
+                color: $accent;
+            }
+        }
+    }
+
+    .social {
+        margin-bottom: 50px;
+        a {
+            color: $primary;
+            font-size: 30px;
+
+            &:hover {
+                color: $accent;
+            }
+        }
+    }
+
+    .map {
+        margin: 0 -50px -7px;
+
+        iframe {
+            width: 100%;
+            min-height: 350px;
+        }
+    }
+}

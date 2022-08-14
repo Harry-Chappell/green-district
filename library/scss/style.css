@@ -1176,6 +1176,40 @@ h1.archive-title.h2 {
   justify-content: space-between;
 }
 
+.page-template-page-find-us main .contact {
+  text-align: center;
+}
+.page-template-page-find-us main .contact-details {
+  font-size: 25px;
+  display: flex;
+  flex-flow: column;
+  margin-bottom: 0;
+}
+.page-template-page-find-us main .contact-details a, .page-template-page-find-us main .contact-details a:visited {
+  text-decoration: none;
+  color: #215241;
+}
+.page-template-page-find-us main .contact-details a:hover, .page-template-page-find-us main .contact-details a:visited:hover {
+  color: #ffe267;
+}
+.page-template-page-find-us main .social {
+  margin-bottom: 50px;
+}
+.page-template-page-find-us main .social a {
+  color: #215241;
+  font-size: 30px;
+}
+.page-template-page-find-us main .social a:hover {
+  color: #ffe267;
+}
+.page-template-page-find-us main .map {
+  margin: 0 -50px -7px;
+}
+.page-template-page-find-us main .map iframe {
+  width: 100%;
+  min-height: 350px;
+}
+
 /*********************
 IMPORTING MODULES
 Modules are reusable blocks or elements we use throughout the project.
