@@ -552,6 +552,7 @@ FOOTER STYLES
     border-top: 1px solid rgb(255 255 255 / 10%);
 	justify-content: flex-end;
 	align-items: center;
+	padding: 5px 0;
 
 	.nav {
 		margin: 0;
@@ -561,7 +562,7 @@ FOOTER STYLES
 		font-size: 10px;
 		font-family: $sans-serif;
 		opacity: 0.5;
-		padding: 10px;
+		padding: 5px 10px;
 	}
 	.nav li a:hover {
 		opacity: 1;

@@ -1,3 +1,121 @@
 .wrap {
     width: calc(100vw - 20px);
 }
+
+.hamburger {
+    right: 10px;
+}
+
+.hero-slide {
+    height: calc(100vh - 350px);
+    margin-bottom: calc(100vh - 580px);
+}
+section.hero .prev,
+section.hero .next {
+    top: calc((100vh - 350px) / 2);
+}
+.overlay {
+    height: 300px;
+    top: calc(100vh - 550px);
+}
+@media screen and (min-height: 700px) {
+    .hero-slide {
+        height: 250px;
+        margin-bottom: 210px;
+    }
+    section.hero .prev,
+    section.hero .next {
+        top: 125px;
+    }
+    .overlay {
+        top: 100px;
+        padding: 50px 25px;
+    }
+}
+.overlay h2 {
+    margin-bottom: 10px;
+}
+.overlay h3 {
+    margin-bottom: 15px;
+}
+
+.has-stripes:before,
+.has-stripes:after {
+    width: 150px;
+    height: 50px;
+}
+.has-stripes:before {
+    top: 5px;
+    left: 10px;
+}
+.has-stripes:after {
+    bottom: 5px;
+    right: 10px;
+}
+
+
+h2, .h2 {
+	font-size: 40px;
+}
+
+h3, .h3 {
+	font-size: 30px;
+}
+
+h4, .h4 {
+	font-size: 15px;
+}
+
+
+.store {
+    width: calc((100% - 10px) / 2);
+    margin-bottom: 10px;
+}
+.logo-cntr {
+    height: 150px;
+}
+.logo-cntr .logo {
+    padding: 50px 10%;
+}
+
+
+.find-us .green-background {
+    right: -10px;
+}
+.find-us img {
+    height: 250px;
+}
+
+.coming-up .next,
+.coming-up .prev {
+    display: none;
+}
+#posts-cntr > .post-cntr:last-of-type,
+#posts-cntr > .post-cntr:not(:last-of-type) {
+    min-width: 90%;
+}
+
+section.signup {
+    flex-direction: column;
+}
+section.signup > div,
+section.signup > img {
+    width: 100%;
+}
+section.signup > div {
+    margin-bottom: 25px;
+}
+
+.inner-footer {
+    flex-direction: column;
+}
+.logo-social {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.footer-contact {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
