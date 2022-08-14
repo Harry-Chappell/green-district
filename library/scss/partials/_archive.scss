@@ -1,0 +1,32 @@
+#posts-cntr.archive {
+    flex-flow: row wrap;
+    width: 100%;
+    justify-content: space-between;
+
+    &> .post {
+        padding-right: 0;
+        width: calc((100% - (25px * 2)) / 3);
+        min-width: unset;
+        margin: 0 0 25px;
+    }
+}
+
+.archive h1.page-title,
+h1.archive-title.h2 {
+    width: 100%;
+}
+.categories {
+    margin: -25px 50px 25px;
+    font-size: 10px;
+    color: $meta-gray;
+
+    a, a:visited {
+        color: $meta-gray;
+    }
+}
+
+
+.post-type-archive-stores .stores {
+    flex-flow: row wrap;
+    justify-content: space-between;
+}

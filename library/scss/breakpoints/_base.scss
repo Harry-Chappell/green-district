@@ -36,6 +36,9 @@ LAYOUT & GRID STYLES
 	margin-left: auto;
 	margin-right: auto;
 }
+main {
+	padding-top: 50px;
+}
 
 /*********************
 LINK STYLES
@@ -305,6 +308,10 @@ POSTS & CONTENT STYLES
 
 } /* end .hentry */
 
+.featured-image {
+	max-height: 500px;
+	object-fit: cover;
+}
 
 .sidebar {
     padding: 25px;

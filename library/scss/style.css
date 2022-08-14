@@ -1090,7 +1090,7 @@ section.hero {
   padding-right: 25px;
   min-width: calc((100% + 25px) / 3);
 }
-#posts-cntr > .post-cntr > .post {
+#posts-cntr .post {
   width: 100%;
   padding-top: 10px;
   background-color: #215241;
@@ -1099,30 +1099,30 @@ section.hero {
   color: #fff;
   padding-bottom: 25px;
 }
-#posts-cntr > .post-cntr > .post:not(:last-of-type) {
+#posts-cntr .post:not(:last-of-type) {
   margin-right: 25px;
 }
-#posts-cntr > .post-cntr > .post a.image-cntr {
+#posts-cntr .post a.image-cntr {
   height: 200px;
   width: 100%;
 }
-#posts-cntr > .post-cntr > .post a.image-cntr .image {
+#posts-cntr .post a.image-cntr .image {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
-#posts-cntr > .post-cntr > .post a.image-cntr:hover .image {
+#posts-cntr .post a.image-cntr:hover .image {
   opacity: 0.75;
 }
-#posts-cntr > .post-cntr > .post h3 {
+#posts-cntr .post h3 {
   margin: 25px 50px;
 }
-#posts-cntr > .post-cntr > .post p {
+#posts-cntr .post p {
   flex: 1;
 }
-#posts-cntr > .post-cntr > .post a.button,
-#posts-cntr > .post-cntr > .post p {
+#posts-cntr .post a.button,
+#posts-cntr .post p {
   margin-left: 50px;
   margin-right: 50px;
 }
@@ -1143,6 +1143,37 @@ section.signup > img {
   width: calc((100% - 50px) / 2);
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+#posts-cntr.archive {
+  flex-flow: row wrap;
+  width: 100%;
+  justify-content: space-between;
+}
+#posts-cntr.archive > .post {
+  padding-right: 0;
+  width: calc((100% - 50px) / 3);
+  min-width: unset;
+  margin: 0 0 25px;
+}
+
+.archive h1.page-title,
+h1.archive-title.h2 {
+  width: 100%;
+}
+
+.categories {
+  margin: -25px 50px 25px;
+  font-size: 10px;
+  color: #88a299;
+}
+.categories a, .categories a:visited {
+  color: #88a299;
+}
+
+.post-type-archive-stores .stores {
+  flex-flow: row wrap;
+  justify-content: space-between;
 }
 
 /*********************
@@ -1624,6 +1655,10 @@ LAYOUT & GRID STYLES
   margin-right: auto;
 }
 
+main {
+  padding-top: 50px;
+}
+
 /*********************
 LINK STYLES
 *********************/
@@ -1861,6 +1896,12 @@ POSTS & CONTENT STYLES
 }
 
 /* end .hentry */
+.featured-image {
+  max-height: 500px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .sidebar {
   padding: 25px;
   background: #215241;

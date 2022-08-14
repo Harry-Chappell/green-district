@@ -273,54 +273,54 @@ section.hero {
             padding-right: 25px;
             min-width: calc((100% + 25px) / 3);
         }
-        &> .post {
+    }
+    .post {
+        width: 100%;
+        padding-top: 10px;
+        background-color: $primary;
+        display: flex;
+        flex-direction: column;
+        color: $white;
+        padding-bottom: 25px;
+        // opacity: 0.5;
+        
+        &:not(:last-of-type) {
+            margin-right: 25px;
+        }
+
+        // &.active,
+        // &.active + .post,
+        // &.active + .post + .post {
+        //     opacity: 1;
+        // }
+
+        a.image-cntr {
+            height: 200px;
             width: 100%;
-            padding-top: 10px;
-            background-color: $primary;
-            display: flex;
-            flex-direction: column;
-            color: $white;
-            padding-bottom: 25px;
-            // opacity: 0.5;
-            
-            &:not(:last-of-type) {
-                margin-right: 25px;
-            }
 
-            // &.active,
-            // &.active + .post,
-            // &.active + .post + .post {
-            //     opacity: 1;
-            // }
-
-            a.image-cntr {
-                height: 200px;
+            .image {
                 width: 100%;
-
-                .image {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
-
-                &:hover .image {
-                    opacity: 0.75;
-                }
+                height: 100%;
+                object-fit: cover;
             }
 
-            h3 {
-                margin: 25px 50px;
+            &:hover .image {
+                opacity: 0.75;
             }
+        }
 
-            p {
-                flex: 1;
-            }
+        h3 {
+            margin: 25px 50px;
+        }
 
-            a.button,
-            p {
-                margin-left: 50px;
-                margin-right: 50px;
-            }
+        p {
+            flex: 1;
+        }
+
+        a.button,
+        p {
+            margin-left: 50px;
+            margin-right: 50px;
         }
     }
 }
