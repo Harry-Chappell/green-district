@@ -286,9 +286,8 @@ POSTS & CONTENT STYLES
 
 .hentry {
 	background-color: $white;
-	border-radius: 3px;
-	margin-bottom: 1.5em;
-	border: 1px solid $border-color;
+	margin-bottom: 100px;
+	// border: 1px solid $border-color;
 
 	header {
 		border-bottom: 1px solid $light-gray;
@@ -306,6 +305,46 @@ POSTS & CONTENT STYLES
 
 } /* end .hentry */
 
+
+.sidebar {
+    padding: 25px;
+    background: #215241;
+    color: white;
+    margin: 0 0 50px;
+}
+table.open-hours {
+    margin: 25px 0;
+    font-size: 15px;
+
+	td:first-of-type {
+		// font-weight: bold;
+		padding-right: 10px;
+	}
+}
+.contact-details {
+    margin-bottom: 25px;
+}
+.contact-details a {
+    text-decoration: none;
+    line-height: 2;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+.social a:hover {
+	background-color: rgba($white, 0.1);
+}
+
+.day-0 .sunday,
+.day-2 .monday,
+.day-3 .tuesday,
+.day-4 .wednesday,
+.day-5 .thursday,
+.day-6 .friday,
+.day-7 .saturday {
+	font-weight: bold;
+}
 
 /* post meta */
 .byline {

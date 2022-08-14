@@ -1,3 +1,6 @@
+	<!-- Set Homepage ID -->
+	<?php $home_id = get_option('page_on_front'); ?>
+
 			<footer class="footer" role="contentinfo" itemscope itemtype="http://schema.org/WPFooter">
 
 				<div class="inner-footer wrap">
