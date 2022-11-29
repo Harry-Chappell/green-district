@@ -14,13 +14,13 @@ section.hero {
     margin-bottom: 0;
 }
 .hero-slide {
-    height: 700px;
+    height: 600px;
     background-size: cover;
     background-position: center;
     padding: 50px calc((100vw - (1180px)) / 2);
 }
 .overlay {
-    background: white;
+    background: var(--bg-color);
     padding: 50px 25px;
     height: 100%;
     width: 400px;

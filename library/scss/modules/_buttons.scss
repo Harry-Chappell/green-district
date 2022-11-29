@@ -42,15 +42,15 @@ http://www.youtube.com/watch?v=hwdVpKiJzac
   cursor: pointer;
   
   &:hover, &:focus {
-    background-color: darken($primary, 5%);
+    background-color: $primary;
     color: darken($accent, 10%);
     text-decoration: none;
     outline: none;
   }
 
   &:active {
-    background-color: darken($primary, 10%);
-    color: darken($accent, 20%);
+    background-color: $primary;
+    color: $accent;
   }
 
   &.inverted {
@@ -58,15 +58,15 @@ http://www.youtube.com/watch?v=hwdVpKiJzac
     color: $primary;
 
     &:hover, &:focus {
-      background-color: darken($accent, 10%);
+      background-color: $accent;
       color: $black;
       text-decoration: none;
       outline: none;
     }
     
     &:active {
-      background-color: darken($accent, 10%);
-      color: darken($primary, 20%);
+      background-color: $accent;
+      color: $primary;
     } 
   }
 

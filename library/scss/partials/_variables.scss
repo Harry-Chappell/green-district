@@ -45,3 +45,52 @@ $link-hover:        darken($link-color, 1%);
 
 $border-color:      #ccc;
 $disabled-gray:     #cfcfcf;
+
+
+
+// Dark Mode
+
+@media (prefers-color-scheme: light) {
+    body:not(.dark-theme)  {
+        --primary-color: #215241;
+        --text-color: #215241;
+        --bg-color: white;
+        
+        .light-hide {
+            display: none;
+        }
+    }
+
+    body.dark-theme {
+        --primary-color: #1f3d33;
+        --text-color: white;
+        --bg-color: #1e1e1d;
+
+        .dark-hide {
+            display: none;
+        }
+    }
+}
+@media (prefers-color-scheme: dark) {
+    body:not(.light-theme)  {
+        --primary-color: #1f3d33;
+        --text-color: white;
+        --bg-color: #1e1e1d;
+        
+        .dark-hide {
+            display: none;
+        }
+    }
+
+    body.light-theme {
+        --primary-color: #215241;
+        --text-color: #215241;
+        --bg-color: white;
+
+        .light-hide {
+            display: none;
+        }
+    }
+}
+
+$primary: var(--primary-color);

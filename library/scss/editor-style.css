@@ -583,6 +583,42 @@ body#tinymce.wp-editor span.amp {
   font-family: Baskerville, "Goudy Old Style", Palatino, "Book Antiqua", serif !important;
   font-style: italic;
 }
+@media (prefers-color-scheme: light) {
+  body#tinymce.wp-editor body:not(.dark-theme) {
+    --primary-color: #215241;
+    --text-color: #215241;
+    --bg-color: white;
+  }
+  body#tinymce.wp-editor body:not(.dark-theme) .light-hide {
+    display: none;
+  }
+  body#tinymce.wp-editor body.dark-theme {
+    --primary-color: #1f3d33;
+    --text-color: white;
+    --bg-color: #1e1e1d;
+  }
+  body#tinymce.wp-editor body.dark-theme .dark-hide {
+    display: none;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  body#tinymce.wp-editor body:not(.light-theme) {
+    --primary-color: #1f3d33;
+    --text-color: white;
+    --bg-color: #1e1e1d;
+  }
+  body#tinymce.wp-editor body:not(.light-theme) .dark-hide {
+    display: none;
+  }
+  body#tinymce.wp-editor body.light-theme {
+    --primary-color: #215241;
+    --text-color: #215241;
+    --bg-color: white;
+  }
+  body#tinymce.wp-editor body.light-theme .light-hide {
+    display: none;
+  }
+}
 @font-face {
   body#tinymce.wp-editor {
     font-family: "SignPainter";
